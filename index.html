@@ -491,7 +491,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 
 /* Footer */
 .footer{padding:60px 6vw 30px;border-top:1px solid var(--line);overflow:hidden}
-.footer__big{font-family:var(--f-d);font-weight:900;font-size:clamp(70px,18vw,290px);line-height:.85;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(227,11,92,.5);white-space:nowrap;margin-bottom:60px;text-align:center}
+.footer__big{font-family:var(--f-d);font-weight:900;font-size:clamp(34px,8.4vw,128px);line-height:.9;letter-spacing:-.045em;color:transparent;-webkit-text-stroke:1px rgba(227,11,92,.5);white-space:nowrap;margin:0 auto 40px;text-align:center;max-width:100%;padding:0 3vw;box-sizing:border-box}
 .footer__big i{color:var(--rasp);-webkit-text-stroke:0;font-style:normal}
 .footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:50px}
 .footer__grid h3{font-family:var(--f-d);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-2);margin-bottom:14px}
@@ -2718,7 +2718,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
     <button class="nav__chat" data-open-chat type="button"><span class="pulse"></span>Чат</button>
   </nav>
   <div class="header__right">
-    <div class="status" data-status title="Пн–Пт, 9:00–19:00"><span class="status__dot"></span><span class="status__txt">Проверяем…</span></div>
+    <div class="status" data-status title="Пн–Пт, 10:00–19:00"><span class="status__dot"></span><span class="status__txt">Проверяем…</span></div>
     <button type="button" class="theme-btn" id="themeBtn" aria-label="Включить светлую тему" aria-pressed="false" title="Включить светлую тему"><svg class="theme-btn__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="theme-btn__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg></button>
     <a href="#book" class="btn btn--sm magnetic" data-open-book>Записаться</a>
     <button type="button" class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
@@ -2731,7 +2731,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
   <canvas id="hero3d" aria-hidden="true"></canvas>
   <div class="hero__glow" aria-hidden="true"></div>
   <div class="hero__content">
-    <p class="eyebrow reveal-up"><span class="line"></span> Юридическая фирма · Москва · Пн–Пт 9:00–19:00</p>
+    <p class="eyebrow reveal-up"><span class="line"></span> Юридическая фирма · Москва · Пн–Пт 10:00–19:00</p>
     <h1 class="hero__title" aria-label="Право на вашей стороне.">
       <span class="split">Право</span>
       <span class="split accent">на вашей</span>
@@ -2827,7 +2827,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
       <div class="card__icon" aria-hidden="true">☏</div>
       <h3>Консультация</h3>
       <p>Встреча со старшим юристом по видео, телефону или в офисе.</p>
-      <ul class="pricelist"><li><span>Первые 30 мин</span><b>2&nbsp;900&nbsp;₽</b></li><li><span>60 мин</span><b>5&nbsp;500&nbsp;₽</b></li></ul>
+      <ul class="pricelist"><li><span>Простая, устно до 30 мин</span><b>2&nbsp;900&nbsp;₽</b></li><li><span>Стандарт, до часа</span><b>5&nbsp;000&nbsp;₽</b></li><li><span>Сложная, весь пакет</span><b>10&nbsp;000&nbsp;₽</b></li></ul>
       <a href="#book" class="card__link" data-open-book>Записаться →</a>
     </article>
     <article class="card tilt reveal">
@@ -2847,8 +2847,8 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
     <article class="card tilt reveal">
       <div class="card__icon" aria-hidden="true">♡</div>
       <h3>Семейное право</h3>
-      <p>Развод, определение места жительства детей, алименты и брачные договоры — деликатно и конфиденциально.</p>
-      <ul class="pricelist"><li><span>Развод по согласию</span><b>28&nbsp;000&nbsp;₽</b></li><li><span>Брачный договор</span><b>22&nbsp;000&nbsp;₽</b></li></ul>
+      <p>Развод, определение места жительства детей, алименты и проект брачного договора — деликатно и конфиденциально. Сам брачный договор у нотариуса мы не составляем.</p>
+      <ul class="pricelist"><li><span>Развод по согласию</span><b>28&nbsp;000&nbsp;₽</b></li><li><span>Проект брачного договора</span><b>22&nbsp;000&nbsp;₽</b></li></ul>
       <a href="#calculator" class="card__link" data-preset="family">Рассчитать →</a>
     </article>
     <article class="card tilt reveal">
@@ -3151,7 +3151,8 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
       <fieldset class="range">
         <legend>3. Сложность <output id="complexOut">Стандартная</output></legend>
         <input type="range" id="complexity" min="1" max="3" step="1" value="2" aria-label="Сложность дела">
-        <div class="range__labels"><span>Простая ×0,8</span><span>Стандартная ×1</span><span>Сложная ×1,5</span></div>
+        <div class="range__labels"><span>Простая 2&nbsp;900</span><span>Стандарт 5&nbsp;000</span><span>Сложная 10&nbsp;000</span></div>
+        <p class="tiny muted" id="complexNote">Небольшой пакет документов, не больше часа.</p>
       </fieldset>
       <fieldset class="range" id="hearingsWrap">
         <legend>4. Ожидаемое число заседаний <output id="hearingsOut">2</output></legend>
@@ -3160,7 +3161,6 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
       <fieldset>
         <legend>5. Дополнительно</legend>
         <label class="switch"><input type="checkbox" id="optUrgent"><span></span> Срочно (в течение 24 ч) <em>+25%</em></label>
-        <label class="switch"><input type="checkbox" id="optTranslate"><span></span> Нотариальный перевод <em>+2&nbsp;000&nbsp;₽</em></label>
         <label class="switch"><input type="checkbox" id="optRetainer"><span></span> Рассрочка на 3 месяца <em>0%</em></label>
       </fieldset>
     </form>
@@ -3182,7 +3182,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
       <p class="eyebrow"><span class="line"></span> Шаг 4 — День и время</p>
       <h3 class="wiz__h">Выберите день и время</h3>
       <p class="muted small" id="wizQuoteMini"></p>
-      <p class="book__demo tiny muted">Пн–Пт, 9:00–19:00 (московское время). Длительность встречи — <b id="wizMins">60</b>&nbsp;мин.</p>
+      <p class="book__demo tiny muted">Пн–Пт, 10:00–19:00 (московское время). Длительность встречи — <b id="wizMins">60</b>&nbsp;мин.</p>
       <fieldset class="book__block">
         <legend>Формат встречи</legend>
         <div class="seg book__fmts" id="wizFmts" role="radiogroup" aria-label="Формат встречи"></div>
@@ -3447,8 +3447,8 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
     <h2 class="h2 reveal-up">Вопросы — <em>ответы</em>.</h2>
   </div>
   <div class="faq__list">
-    <details class="qa reveal"><summary>Сколько стоит первая консультация?<i></i></summary><div class="qa__a"><p>Первые 30 минут стоят 2&nbsp;900&nbsp;₽. Если вы поручите нам дело, эта сумма будет зачтена в счёт оплаты.</p></div></details>
-    <details class="qa reveal"><summary>Какой у вас график работы?<i></i></summary><div class="qa__a"><p>С понедельника по пятницу, с 9:00 до 19:00. На сообщения в чате, отправленные в нерабочее время, ответим утром следующего рабочего дня.</p></div></details>
+    <details class="qa reveal"><summary>Сколько стоит первая консультация?<i></i></summary><div class="qa__a"><p>Простая консультация — 2&nbsp;900&nbsp;₽: устно, не больше 30 минут. Стандарт — 5&nbsp;000&nbsp;₽: небольшой пакет документов, не больше часа. Сложная — 10&nbsp;000&nbsp;₽: изучаем весь пакет до 3 рабочих дней и устно до часа. Сумма засчитывается, если вы поручите нам дело.</p></div></details>
+    <details class="qa reveal"><summary>Какой у вас график работы?<i></i></summary><div class="qa__a"><p>С понедельника по пятницу, с 10:00 до 19:00. На сообщения в чате, отправленные в нерабочее время, ответим утром следующего рабочего дня.</p></div></details>
     <details class="qa reveal"><summary>Можно ли пообщаться с юристом онлайн?<i></i></summary><div class="qa__a"><p>Да — нажмите «Чат» в меню или плавающую кнопку. Переписка сохраняется в вашем браузере, и к ней можно вернуться позже.</p></div></details>
     <details class="qa reveal"><summary>Работаете ли вы за гонорар успеха?<i></i></summary><div class="qa__a"><p>По взысканию долгов и некоторым коммерческим спорам — да: сниженная фиксированная часть плюс процент от взысканной суммы.</p></div></details>
     <details class="qa reveal"><summary>Моя информация останется конфиденциальной?<i></i></summary><div class="qa__a"><p>Безусловно. Всё, что вы нам сообщаете, защищено адвокатской тайной и обрабатывается в соответствии с Федеральным законом №&nbsp;152-ФЗ «О персональных данных».</p></div></details>
@@ -3462,7 +3462,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
       <p class="eyebrow reveal-up"><span class="line"></span> 08 — Контакты</p>
       <h2 class="h2 reveal-up">Переведём вашу проблему<br>в режим <em>ЦентрОФФ</em>.</h2>
       <ul class="contact__info reveal-up">
-        <li><span>Часы</span><b>Пн–Пт · 9:00–19:00</b><em class="status" data-status><span class="status__dot"></span><span class="status__txt">…</span></em></li>
+        <li><span>Часы</span><b>Пн–Пт · 10:00–19:00</b><em class="status" data-status><span class="status__dot"></span><span class="status__txt">…</span></em></li>
         <li><span>Телефон</span><a href="tel:+74955859061">+7 (495) 585-90-61</a></li>
         <li><span>Почта</span><a href="mailto:5010845@mail.ru">5010845@mail.ru</a></li>
         <li><span>Офис</span><b>г.&nbsp;Москва, Мартеновская ул., д.&nbsp;1/58<br><span class="metro"><i aria-hidden="true"></i> м.&nbsp;Новогиреево</span></b></li>
@@ -3477,7 +3477,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
         <h3 class="route__h">Как добраться</h3>
         <p class="route__addr"><b>г.&nbsp;Москва, Мартеновская ул., д.&nbsp;1/58</b><br>
           <span class="metro"><i aria-hidden="true"></i> м.&nbsp;Новогиреево</span> · Калининская линия
-          <span class="route__hours">Пн–Пт · 9:00–19:00</span></p>
+          <span class="route__hours">Пн–Пт · 10:00–19:00</span></p>
         <p class="route__hint muted small">От метро «Новогиреево» выйдите к улице и ориентируйтесь на Мартеновскую, дом&nbsp;1/58. Точный путь и время зависят от выхода — их лучше посмотреть в навигаторе, мы не указываем непроверенные минуты.</p>
         <div class="route__btns">
           <a class="btn btn--sm" data-contact="map-route" href="https://yandex.ru/maps/?mode=routes&amp;rtext=~Москва, Мартеновская улица, 1/58&amp;rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
@@ -3526,7 +3526,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
   <div class="footer__grid">
     <div><a href="#top" class="logo" aria-label="ЦентрОФФ — наверх"><span>Центр</span><b>ОФФ</b></a><p class="muted small">Современная юридическая фирма. Прозрачные цены. Юрист на связи в один клик.</p></div>
     <div><h3>Разделы</h3><a href="#way">С чего начать</a><a href="#services">Услуги и цены</a><a href="#situations">Что случилось</a><a href="#calculator">Узнать цену</a><a href="#plans">Юрист на месяц</a><a href="#faq">Вопросы</a><a href="#contact">Контакты</a></div>
-    <div><h3>Часы работы</h3><p>Пн–Пт: 9:00–19:00</p><p>Сб–Вс: выходной</p><p class="status" data-status><span class="status__dot"></span><span class="status__txt">…</span></p></div>
+    <div><h3>Часы работы</h3><p>Пн–Пт: 10:00–19:00</p><p>Сб–Вс: выходной</p><p class="status" data-status><span class="status__dot"></span><span class="status__txt">…</span></p></div>
     <div><h3>Контакты</h3><a href="tel:+74955859061">+7 (495) 585-90-61</a><a href="mailto:5010845@mail.ru">5010845@mail.ru</a><button class="link-btn" data-open-chat type="button">Открыть чат →</button><div class="messengers messengers--sm"><a class="msgr msgr--tg" href="https://t.me/centroff_law" data-contact="telegram" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.6 2.9 10.8c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5ZM9.6 14l8.6-7.8-6.9 9-.3 3.1Z"/></svg></a><a class="msgr msgr--wa" href="https://wa.me/79255859061" data-contact="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></a><a class="msgr msgr--vk" href="https://vk.com/centroff_law" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.8 17.5C6.6 17.5 3.1 13.3 3 6.3h3.1c.1 5.1 2.4 7.3 4.2 7.8V6.3h2.9v4.4c1.8-.2 3.7-2.2 4.3-4.4h2.9a8.6 8.6 0 0 1-3.9 5.6 9 9 0 0 1 4.6 5.6h-3.2a5.6 5.6 0 0 0-4.7-4v4Z"/></svg></a></div></div>
   </div>
   <p class="footer__req">ЦентрОФФ · г.&nbsp;Москва, Мартеновская ул., д.&nbsp;1/58 · ИНН и ОГРН на сайте не публикуем, их скажут в офисе</p>
@@ -3619,7 +3619,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
     <div class="book__view" id="bookFlow">
       <p class="eyebrow"><span class="line"></span> Онлайн-запись</p>
       <h2 id="bookTitle">Записаться на приём</h2>
-      <p class="book__lead muted">Выберите услугу, формат и свободное время. Пн–Пт, 9:00–19:00 — московское время.</p>
+      <p class="book__lead muted">Выберите услугу, формат и свободное время. Пн–Пт, 10:00–19:00 — московское время.</p>
       <p class="book__demo tiny muted">Запись уходит в офис, а её копия остаётся в этом браузере: отсюда же её можно отменить.</p>
 
       <form id="bookForm" novalidate>
@@ -3712,10 +3712,10 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-  {"@type":"LegalService","name":"ЦентрОФФ","telephone":"+74955859061","email":"5010845@mail.ru","priceRange":"₽₽","areaServed":"Москва","address":{"@type":"PostalAddress","streetAddress":"Мартеновская ул., д. 1/58","addressLocality":"Москва","addressCountry":"RU"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},"hasMap":"https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9C%D0%B0%D1%80%D1%82%D0%B5%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%201%2F58"},
+  {"@type":"LegalService","name":"ЦентрОФФ","telephone":"+74955859061","email":"5010845@mail.ru","priceRange":"₽₽","areaServed":"Москва","address":{"@type":"PostalAddress","streetAddress":"Мартеновская ул., д. 1/58","addressLocality":"Москва","addressCountry":"RU"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"19:00"},"hasMap":"https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9C%D0%B0%D1%80%D1%82%D0%B5%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%201%2F58"},
   {"@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Сколько стоит первая консультация?","acceptedAnswer":{"@type":"Answer","text":"Первые 30 минут стоят 2 900 ₽. Если вы поручите нам дело, эта сумма будет зачтена в счёт оплаты."}},
-    {"@type":"Question","name":"Какой у вас график работы?","acceptedAnswer":{"@type":"Answer","text":"С понедельника по пятницу, с 9:00 до 19:00. На сообщения в чате, отправленные в нерабочее время, ответим утром следующего рабочего дня."}},
+    {"@type":"Question","name":"Сколько стоит первая консультация?","acceptedAnswer":{"@type":"Answer","text":"Простая консультация — 2 900 ₽, устно, не больше 30 минут. Стандарт — 5 000 ₽, небольшой пакет документов, не больше часа. Сложная — 10 000 ₽: весь пакет до 3 рабочих дней и устно до часа."}},
+    {"@type":"Question","name":"Какой у вас график работы?","acceptedAnswer":{"@type":"Answer","text":"С понедельника по пятницу, с 10:00 до 19:00. На сообщения в чате, отправленные в нерабочее время, ответим утром следующего рабочего дня."}},
     {"@type":"Question","name":"Можно ли пообщаться с юристом онлайн?","acceptedAnswer":{"@type":"Answer","text":"Да — нажмите «Чат» в меню или плавающую кнопку. Переписка сохраняется в вашем браузере. Также можно написать в WhatsApp или Telegram."}},
     {"@type":"Question","name":"Работаете ли вы за гонорар успеха?","acceptedAnswer":{"@type":"Answer","text":"По взысканию долгов и некоторым коммерческим спорам — да: сниженная фиксированная часть плюс процент от взысканной суммы."}},
     {"@type":"Question","name":"Моя информация останется конфиденциальной?","acceptedAnswer":{"@type":"Answer","text":"Безусловно. Всё, что вы нам сообщаете, защищено адвокатской тайной и обрабатывается в соответствии с Федеральным законом № 152-ФЗ «О персональных данных»."}}
@@ -3839,7 +3839,7 @@ try {
  *
  * Local mode (default, BOOKING_API_URL === ''):
  *   Reservations live in localStorage and sync across tabs via the
- *   `storage` event. Every Mon–Fri 9–19 slot starts free; only real
+ *   `storage` event. Every Mon–Fri 10–19 slot starts free; only real
  *   reservations (and past-today times) are blocked. No-overlap is
  *   enforced. A static site cannot exclude other visitors — that
  *   needs a server.
@@ -4649,11 +4649,10 @@ function docListFor(clientId, caseId) {
 function durationFromQuote(q) {
   if (!q || !q.services || !q.services.length) return 60;
   const names = q.services.map(s => (s.name || '').toLowerCase());
-  if (names.some(n => n.includes('медиац'))) return 90;
   if (names.some(n => n.includes('переговор'))) return 90;
+  if (names.length && names.every(n => n.includes('консультац'))) return (+($('#complexity')?.value || 2) === 1) ? 30 : 60;
   if (names.length >= 3) return 90;
-  if (names.some(n => !n.includes('консультац'))) return 60;
-  return 30;
+  return 60;
 }
 
 function readCalcQuote() {
@@ -9288,15 +9287,15 @@ void main() {
     court: [['Первичная консультация', 2900, true], ['Анализ дела и стратегия', 25000, true], ['Исковое заявление / отзыв', 35000, true], ['Подготовка доказательств и свидетелей', 30000], ['Апелляционная жалоба', 50000]],
     contract: [['Первичная консультация', 2900, true], ['Проверка договора (до 10 стр.)', 9900, true], ['Составление договора с нуля', 19000], ['Сопровождение переговоров', 15000], ['Пакет соглашений о конфиденциальности', 10000]],
     corporate: [['Первичная консультация', 2900, true], ['Регистрация ООО с юр. адресом', 19900, true], ['Корпоративный договор', 60000], ['Юридическая проверка компании', 120000], ['Абонентское обслуживание (мес.)', 25000]],
-    family: [['Первичная консультация', 2900, true], ['Развод по согласию', 28000, true], ['Соглашение о детях', 18000], ['Брачный договор', 22000], ['Сессия медиации', 12000]],
+    family: [['Первичная консультация', 2900, true], ['Развод по согласию', 28000, true], ['Соглашение о детях', 18000], ['Проект брачного договора', 22000]],
     realestate: [['Первичная консультация', 2900, true], ['Проверка объекта', 35000, true], ['Проверка договора аренды', 9900], ['Договор купли-продажи', 15000], ['Претензия арендатору / арендодателю', 7000]],
     debt: [['Первичная консультация', 2900, true], ['Досудебная претензия', 8000, true], ['Заявление о судебном приказе', 12000], ['Исполнительное производство', 25000], ['Розыск имущества должника', 40000]]
   };
   const HEARING_FEE = 17000;
-  const CPLX = { 1: ['Простая', 0.8], 2: ['Стандартная', 1], 3: ['Сложная', 1.5] };
+  const CPLX = { 1: ['Простая', 2900, 'Устно, не больше 30 минут'], 2: ['Стандартная', 5000, 'Небольшой пакет документов, не больше часа'], 3: ['Сложная', 10000, 'Весь пакет документов и устная консультация до часа. Изучение — до 3 рабочих дней'] };
   const HEARINGS_AREAS = ['court', 'family', 'debt'];
   const HEARINGS_MAX = 10;
-  const TRANSLATE_FEE = 2000, URGENT_MUL = 1.25, RETAINER_MONTHS = 3;
+  const URGENT_MUL = 1.25, RETAINER_MONTHS = 3;
 
   const fmt = n => Math.round(n).toLocaleString('ru-RU');
   const rub = n => fmt(n) + '\u00a0₽';
@@ -9319,17 +9318,16 @@ void main() {
   function compute(input) {
     const st = normalize(input), list = CATALOG[st.area], lines = [];
     let sub = 0;
-    st.services.forEach(i => { const [n, p] = list[i]; sub += p; lines.push([n, p]); });
+    const [cName, cPrice, cNote] = CPLX[st.complexity];
+    let hasConsult = false;
+    st.services.forEach(i => { let [n, p] = list[i]; if (n === 'Первичная консультация') { p = cPrice; hasConsult = true; } sub += p; lines.push([n, p]); });
     if (st.hearings) { sub += st.hearings * HEARING_FEE; lines.push([`Судебные заседания × ${st.hearings}`, st.hearings * HEARING_FEE]); }
-    const [cName, cMul] = CPLX[st.complexity];
-    let total = sub * cMul;
-    if (cMul !== 1) lines.push([`Сложность: ${cName.toLowerCase()} ×${String(cMul).replace('.', ',')}`, sub * cMul - sub]);
+    let total = sub;
     if (st.urgent) { lines.push(['Срочность +25%', total * 0.25]); total *= URGENT_MUL; }
-    if (st.translate) { lines.push(['Нотариальный перевод', TRANSLATE_FEE]); total += TRANSLATE_FEE; }
     if (st.retainer) lines.push(['Рассрочка без процентов', 0]);
-    total = Math.round(total); // итог в целых рублях — одно место округления для сайта и бота (#18)
+    total = Math.round(total);
     return {
-      state: st, areaName: AREAS[st.area], complexityName: cName, lines, total,
+      state: st, areaName: AREAS[st.area], complexityName: cName, consultNote: hasConsult ? cNote : '', lines, total,
       monthly: st.retainer ? total / RETAINER_MONTHS : null,
       note: st.retainer ? `≈ ${rub(total / RETAINER_MONTHS)} в месяц в течение ${RETAINER_MONTHS} месяцев` : 'Единовременная оплата, НДС не облагается'
     };
@@ -9376,7 +9374,7 @@ const CONTACTS = {
   address: 'г. Москва, Мартеновская ул., д. 1/58',
   metro: 'м. Новогиреево',
   mapQuery: 'Москва, Мартеновская улица, 1/58',
-  hours: 'Пн–Пт 9:00–19:00'
+  hours: 'Пн–Пт 10:00–19:00'
 };
 const waUrl = (text) => CONTACTS.whatsapp + '?text=' + encodeURIComponent(text || CONTACTS.whatsappText);
 const mapSearch = () => 'https://yandex.ru/maps/?text=' + encodeURIComponent(CONTACTS.mapQuery);
@@ -9836,7 +9834,7 @@ if (hasGSAP && !reduce) {
   // parallax
   gsap.fromTo('.hero__content', { yPercent: 0, opacity: 1 }, { yPercent: 25, opacity: .2, ease: 'none', immediateRender: false, scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
   gsap.to('.marquee__track', { x: -200, ease: 'none', scrollTrigger: { trigger: '.marquee', scrub: 1 } });
-  gsap.from('.footer__big', { yPercent: 60, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'top 30%', scrub: 1 } });
+  gsap.from('.footer__big', { y: 24, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'top 55%', scrub: 1 } });
   // #process: горизонтальный GSAP-пин убран, теперь таймлайн в js/timeline.js (Motion)
 }
 }, 0);
@@ -10012,14 +10010,14 @@ function firmNow() {
 }
 function updateStatus() {
   const { day, h, m } = firmNow(), mins = h * 60 + m;
-  const open = day < 5 && mins >= 540 && mins < 1140;
+  const open = day < 5 && mins >= 600 && mins < 1140;
   let txt;
   if (open) { const left = 1140 - mins; txt = left <= 60 ? `Открыто · закроемся через ${left} мин` : 'Открыто · до 19:00'; }
-  else if (day < 5 && mins < 540) txt = 'Закрыто · откроемся сегодня в 9:00';
-  else if (day < 4) txt = 'Закрыто · откроемся завтра в 9:00';
-  else txt = 'Закрыто · откроемся в пн в 9:00';
+  else if (day < 5 && mins < 600) txt = 'Закрыто · откроемся сегодня в 10:00';
+  else if (day < 4) txt = 'Закрыто · откроемся завтра в 10:00';
+  else txt = 'Закрыто · откроемся в пн в 10:00';
   $$('[data-status]').forEach(s => { s.classList.toggle('open', open); s.classList.toggle('closed', !open); $('.status__txt', s).textContent = txt; });
-  $('#hoursTable').innerHTML = DAYS.map((d, i) => `<div class="${i > 4 ? 'off' : ''} ${i === day ? 'today' : ''}"><b>${DAYS_RU[i]}</b>${i > 4 ? 'выходной' : '9–19'}</div>`).join('');
+  $('#hoursTable').innerHTML = DAYS.map((d, i) => `<div class="${i > 4 ? 'off' : ''} ${i === day ? 'today' : ''}"><b>${DAYS_RU[i]}</b>${i > 4 ? 'выходной' : '10–19'}</div>`).join('');
   return open;
 }
 updateStatus(); setInterval(updateStatus, 30000);
@@ -10040,9 +10038,15 @@ function calc() {
   const r = PRICING.compute({
     area, services: $$('input:checked', servicesBox).map(c => +c.value), complexity: +complexity.value,
     hearings: $('#hearingsWrap').style.display !== 'none' ? +hearings.value : 0,
-    urgent: $('#optUrgent').checked, translate: $('#optTranslate').checked, retainer: $('#optRetainer').checked
+    urgent: $('#optUrgent').checked, translate: !!($('#optTranslate') && $('#optTranslate').checked), retainer: $('#optRetainer').checked
   });
-  const { lines, total, complexityName: cName } = r;
+  const { lines, total, complexityName: cName, consultNote } = r;
+  const tier = PRICING.CPLX[+complexity.value];
+  $$('#calcServices label').forEach(lab => {
+    const em = lab.querySelector('em');
+    if (em && em.textContent.trim() === 'Первичная консультация' && lab.querySelector('b')) lab.querySelector('b').textContent = eur(tier[1]);
+  });
+  if ($('#complexNote')) $('#complexNote').textContent = (consultNote || tier[2]) + ' · ' + eur(tier[1]);
   $('#complexOut').textContent = cName; $('#hearingsOut').textContent = hearings.value;
   [complexity, hearings].forEach(r => r.style.setProperty('--p', ((r.value - r.min) / (r.max - r.min)) * 100 + '%'));
   $('#calcLines').innerHTML = lines.length ? lines.map(([n, p]) => `<li><span>${n}</span><b>${p < 0 ? '−' : ''}${eur(Math.abs(p))}</b></li>`).join('') : '<li><span>Выберите хотя бы одну услугу</span><b>—</b></li>';
@@ -10104,7 +10108,7 @@ form.addEventListener('submit', e => {
   const btn = $('button[type=submit]', form); btn.disabled = true; $('span', btn).textContent = 'Отправляем…';
   const done = (number) => {
     const name = $('#fName').value.trim().split(' ')[0];
-    $('#formOk').textContent = `Спасибо, ${name}! Заявка${number ? ' ' + number : ''} принята. ${updateStatus() ? 'Юрист перезвонит вам в течение часа.' : 'Мы свяжемся с вами в следующий рабочий день после 9:00.'}`;
+    $('#formOk').textContent = `Спасибо, ${name}! Заявка${number ? ' ' + number : ''} принята. ${updateStatus() ? 'Юрист перезвонит вам в течение часа.' : 'Мы свяжемся с вами в следующий рабочий день после 10:00.'}`;
     form.reset(); btn.disabled = false; $('span', btn).textContent = 'Отправить заявку';
     if (hasGSAP && !reduce) gsap.fromTo('#formOk', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .6 });
   };
@@ -10158,8 +10162,8 @@ function greet() {
         'Здравствуйте! На связи Юрист-бот. Напишите, что случилось, или спросите про стоимость, часы работы и запись на консультацию.'
       ])
     : oneOf([
-        'Здравствуйте! Я Юрист-бот ЦентрОФФ. Сейчас офис не работает (Пн–Пт 9:00–19:00), но напишите вопрос — отвечу сразу, а юрист свяжется в рабочее время.',
-        'Добрый день! Я Юрист-бот. Офис сейчас закрыт (работаем Пн–Пт с 9:00 до 19:00). Могу рассказать о ценах, адресе и записи. Оставьте телефон — перезвоним после 9:00.'
+        'Здравствуйте! Я Юрист-бот ЦентрОФФ. Сейчас офис не работает (Пн–Пт 10:00–19:00), но напишите вопрос — отвечу сразу, а юрист свяжется в рабочее время.',
+        'Добрый день! Я Юрист-бот. Офис сейчас закрыт (работаем Пн–Пт с 10:00 до 19:00). Могу рассказать о ценах, адресе и записи. Оставьте телефон — перезвоним после 10:00.'
       ]));
 }
 window.__centroffOnIdle(() => { history_.length ? history_.forEach(drawMsg) : greet(); }, 150);
@@ -10168,7 +10172,7 @@ function reply(q) {
   const has = re => re.test(t);
   const hours = () => updateStatus()
     ? oneOf(['Сейчас мы на связи!', 'Сейчас рабочее время — можно записаться или написать сюда.'])
-    : oneOf(['Сейчас офис закрыт — ответим в 9:00 следующего рабочего дня.', 'В нерабочее время заявку примем, а юрист свяжется после 9:00.']);
+    : oneOf(['Сейчас офис закрыт — ответим в 10:00 следующего рабочего дня.', 'В нерабочее время заявку примем, а юрист свяжется после 10:00.']);
 
   if (has(/как\s*д[еиы]л[аоуы]?|как\s*(жизнь|живете|живешь|пожива|настроен|сам[аи]?|вы)(?=$|[^а-яa-z0-9])/) && has(/прив[еэ]т|здра+в?ств|добр(ый|ое|ый)|хай|hello|hi\b|hey/)) {
     return oneOf([
@@ -10211,7 +10215,7 @@ function reply(q) {
   if (has(/^(пока|до\s*свидан|всего\s*(добр|хорош)|удачи|бай|bye|goodbye|до связи|на связи)(?=$|[^а-яa-z0-9])/) || has(/до\s*свидан|всего\s*доброго|хорошего\s*(дня|вечера)/)) {
     return oneOf([
       'До свидания! Если понадобится помощь — напишите или запишитесь на консультацию.',
-      'Всего доброго! Мы на связи Пн–Пт с 9:00 до 19:00.',
+      'Всего доброго! Мы на связи Пн–Пт с 10:00 до 19:00.',
       'Удачи! Буду здесь, если снова понадоблюсь.'
     ]);
   }
@@ -10234,34 +10238,34 @@ function reply(q) {
   }
   if (has(/бесплатн|даром|за\s*так|пробн(ая|ую)\s*консульт|без\s*оплат/)) {
     return oneOf([
-      'Первая консультация платная: 2 900 ₽ за 30 минут (5 500 ₽ за 60). Эта сумма засчитывается в оплату, если вы поручите нам дело. Бесплатно на сайте можно посчитать госпошлину и сроки в разделе «Инструменты».',
+      'Консультация: простая 2 900 ₽ (устно, до 30 минут), стандарт 5 000 ₽ (до часа и немного документов), сложная 10 000 ₽ (весь пакет, изучение до 3 рабочих дней, устно до часа). Эта сумма засчитывается в оплату, если вы поручите нам дело. Бесплатно на сайте можно посчитать госпошлину и сроки в разделе «Инструменты».',
       'Бесплатной консультации нет, но калькуляторы госпошлины и исковой давности — открытые, в разделе «Инструменты». Разбор вашей ситуации — от 2 900 ₽ за 30 минут, сумма пойдёт в зачёт, если работа продолжится.'
     ]);
   }
   if (has(/срочн|горит|сегодня|завтра|как можно скорее|прямо сейчас|немедленно|asap/)) {
     return oneOf([
-      'Если горит срок или заседание близко — запишитесь через кнопку «Записаться» или оставьте телефон: в рабочее время свяжемся как можно скорее. Срочная работа может быть с коэффициентом +25%. Мы на связи Пн–Пт с 9:00 до 19:00.',
-      'Понял, срочно. Нажмите «Записаться» на сайте или напишите телефон и пару строк, в чём дело. В рабочие часы (Пн–Пт 9:00–19:00) постараемся ответить быстро. ' + hours()
+      'Если горит срок или заседание близко — запишитесь через кнопку «Записаться» или оставьте телефон: в рабочее время свяжемся как можно скорее. Срочная работа может быть с коэффициентом +25%. Мы на связи Пн–Пт с 10:00 до 19:00.',
+      'Понял, срочно. Нажмите «Записаться» на сайте или напишите телефон и пару строк, в чём дело. В рабочие часы (Пн–Пт 10:00–19:00) постараемся ответить быстро. ' + hours()
     ]);
   }
   if (has(/запис(ать|аться|ь)|записат|назнач(ить|ьте)|хочу\s*(при[ие]ти|консультац)|как\s*(попасть|встрет|приехать)|забронир|слот|при[её]м/)) {
     return oneOf([
-      'Записаться можно через кнопку «Записаться» в меню: выберите услугу, день и время (Пн–Пт, 9:00–19:00, московское время). Или оставьте здесь имя и телефон — перезвоним.',
-      'Удобнее всего онлайн-запись на сайте: мастер заявки или кнопка «Записаться». Консультация — 30 минут за 2 900 ₽ или 60 минут за 5 500 ₽, в офисе (Мартеновская ул., д. 1/58) или онлайн.',
+      'Записаться можно через кнопку «Записаться» в меню: выберите услугу, день и время (Пн–Пт, 10:00–19:00, московское время). Или оставьте здесь имя и телефон — перезвоним.',
+      'Удобнее всего онлайн-запись на сайте: мастер заявки или кнопка «Записаться». Консультация: 2 900 ₽ простая, 5 000 ₽ стандарт, 10 000 ₽ сложная, в офисе (Мартеновская ул., д. 1/58) или онлайн.',
       'Нажмите «Записаться» в шапке сайта, выберите формат и свободный слот. Если слоты не подходят — напишите удобное время и телефон, подберём.'
     ]);
   }
   if (has(/адрес|офис|где\s*вы|где\s*найти|как\s*добраться|метро|новогиреев|мартеновск|локац|где\s*находит/)) {
     return oneOf([
-      'Офис в Москве: Мартеновская ул., д. 1/58, м. Новогиреево. Работаем Пн–Пт с 9:00 до 19:00. Могу помочь записаться на удобное время.',
-      'Мы на Мартеновской улице, дом 1/58, рядом с метро Новогиреево. Приём по записи, Пн–Пт 9:00–19:00.',
+      'Офис в Москве: Мартеновская ул., д. 1/58, м. Новогиреево. Работаем Пн–Пт с 10:00 до 19:00. Могу помочь записаться на удобное время.',
+      'Мы на Мартеновской улице, дом 1/58, рядом с метро Новогиреево. Приём по записи, Пн–Пт 10:00–19:00.',
       'Адрес: г. Москва, Мартеновская ул., д. 1/58 (м. Новогиреево). Если удобнее онлайн — консультацию можно провести по видеосвязи.'
     ]);
   }
   if (has(/(^|[^а-я])час(ы|ов)?(?=$|[^а-яa-z0-9])|час[аы]\s*работ|график|режим работы|работаете|открыт[ыо]?|закрыт[ыо]?|выходн|во сколько|до скольки|\bhours?\b|\bopen\b|когда\s*вы/)) {
     return oneOf([
-      'Мы работаем с понедельника по пятницу, с 9:00 до 19:00 (московское время). Выходные — суббота и воскресенье. ' + hours(),
-      'График: Пн–Пт, 9:00–19:00. В другое время можете написать сюда или оставить телефон — ответим в рабочее время. ' + hours()
+      'Мы работаем с понедельника по пятницу, с 10:00 до 19:00 (московское время). Выходные — суббота и воскресенье. ' + hours(),
+      'График: Пн–Пт, 10:00–19:00. В другое время можете написать сюда или оставить телефон — ответим в рабочее время. ' + hours()
     ]);
   }
   if (has(/ват[цс]?апп?|вацап|вотсап|whats?\s*app|wa\.me/)) {
@@ -10278,8 +10282,8 @@ function reply(q) {
   }
   if (has(/телефон|почт[аы]|e-?mail|имейл|контакты|связаться|перезвон/)) {
     return oneOf([
-      'Контакты — в разделе «Контакты» внизу сайта, там же форма заявки. Можете оставить телефон или почту прямо здесь — юрист свяжется ' + (updateStatus() ? 'в течение часа.' : 'в следующий рабочий день после 9:00.'),
-      'Напишите номер телефона или e-mail — передадим юристу. Либо заполните форму в блоке «Контакты» или запишитесь онлайн. Офис: Мартеновская ул., д. 1/58, Пн–Пт 9:00–19:00.'
+      'Контакты — в разделе «Контакты» внизу сайта, там же форма заявки. Можете оставить телефон или почту прямо здесь — юрист свяжется ' + (updateStatus() ? 'в течение часа.' : 'в следующий рабочий день после 10:00.'),
+      'Напишите номер телефона или e-mail — передадим юристу. Либо заполните форму в блоке «Контакты» или запишитесь онлайн. Офис: Мартеновская ул., д. 1/58, Пн–Пт 10:00–19:00.'
     ]);
   }
   if (has(/документ|что\s*(принести|взять|нужно\s*иметь)|какие\s*бумаг|чек-?лист|список\s*докум/)) {
@@ -10303,7 +10307,7 @@ function reply(q) {
   if (has(/номер дела|мое дело|моё дело|отследить дело|проверить .*дел|статус дела|\bcase\b|track my/)) {
     return oneOf([
       'Публичного трекера дел на сайте нет. Оставьте номер дела и телефон — юрист посмотрит карточку и свяжется с вами. Или запишитесь на консультацию через кнопку «Записаться».',
-      'Чтобы узнать ход конкретного дела, нужна консультация юриста. Напишите номер дела и контакты сюда или запишитесь онлайн (Пн–Пт 9:00–19:00).'
+      'Чтобы узнать ход конкретного дела, нужна консультация юриста. Напишите номер дела и контакты сюда или запишитесь онлайн (Пн–Пт 10:00–19:00).'
     ]);
   }
   if (has(/суд|(^|[^а-я])иск(?=$|[^а-яa-z0-9])|заседани|процесс|представ|апелляц|court|sue|lawsuit|hearing/)) {
@@ -10314,8 +10318,8 @@ function reply(q) {
   }
   if (has(/развод|опек|алимент|брачн|семейн|ребен|дет[иеяй]|divorce|custody|family/)) {
     return oneOf([
-      'Семейные дела ведём конфиденциально. Развод по согласию — 28 000 ₽ фиксированно, брачный договор — 22 000 ₽. Могу помочь записаться на консультацию (2 900 ₽ за 30 минут, засчитывается в оплату).',
-      'По семье: развод, дети, алименты, брачный договор. Стоимость зависит от ситуации; базовые ориентиры есть в калькуляторе и квизе на сайте. Расскажите коротко, что нужно решить.'
+      'Семейные дела ведём конфиденциально. Развод по согласию — 28 000 ₽. Делаем только проект брачного договора — 22 000 ₽, сам договор у нотариуса не составляем. Консультация: 2 900, 5 000 или 10 000 ₽ по сложности.',
+      'По семье: развод, дети, алименты, проект брачного договора. Стоимость зависит от ситуации; базовые ориентиры есть в калькуляторе и квизе на сайте. Расскажите коротко, что нужно решить.'
     ]);
   }
   if (has(/договор|контракт|соглашени|оферт|nda|contract|agreement/)) {
@@ -10332,14 +10336,14 @@ function reply(q) {
   }
   if (has(/цен|стоим|сколько|расценк|тариф|прайс|оплат|консультац|₽|руб|\bprice|\bcost|how much|\bfee|consult/)) {
     return oneOf([
-      'Первичная консультация — 2 900 ₽ за 30 минут (5 500 ₽ за 60 минут); сумма засчитывается, если вы поручите нам дело. Проверка договора — от 9 900 ₽, одно судебное заседание — 17 000 ₽. Точный расчёт — в калькуляторе, госпошлину — в «Инструментах».',
+      'Первичная консультация: 2 900 ₽ простая, 5 000 ₽ стандарт, 10 000 ₽ сложная. Сумма засчитывается, если вы поручите нам дело. Проверка договора — от 9 900 ₽, одно судебное заседание — 17 000 ₽. Точный расчёт — в калькуляторе, госпошлину — в «Инструментах».',
       'Ориентиры: консультация 2 900 ₽ / 30 мин, заседание 17 000 ₽, проверка договора от 9 900 ₽. Могу подсказать, как записаться, или вы можете сразу открыть калькулятор на сайте.'
     ]);
   }
   if (/\+?\d[\d ()-]{7,}/.test(t) || /@/.test(t)) {
     return oneOf([
-      'Спасибо, контакты приняли. Юрист свяжется с вами ' + (updateStatus() ? 'в течение часа.' : 'в следующий рабочий день после 9:00.'),
-      'Записал контакты. Если коротко опишете вопрос — передадим юристу сразу. Свяжемся ' + (updateStatus() ? 'в течение часа.' : 'после 9:00 следующего рабочего дня.')
+      'Спасибо, контакты приняли. Юрист свяжется с вами ' + (updateStatus() ? 'в течение часа.' : 'в следующий рабочий день после 10:00.'),
+      'Записал контакты. Если коротко опишете вопрос — передадим юристу сразу. Свяжемся ' + (updateStatus() ? 'в течение часа.' : 'после 10:00 следующего рабочего дня.')
     ]);
   }
   if (t.length < 3 || has(/^[?!.]+$|^[a-z]{1,4}$|^[а-я]{1,2}$/)) {
@@ -10351,7 +10355,7 @@ function reply(q) {
   return oneOf([
     'Спасибо, я прочитал. Чтобы ответить точнее, уточните, пожалуйста: когда это произошло, кто другая сторона и есть ли срок или дата заседания? Можно оставить телефон — перезвоним.',
     'Понял общий запрос. Добавьте пару деталей (даты, документы, чего хотите добиться) — подскажу первый шаг. Либо запишитесь на консультацию за 2 900 ₽.',
-    'Чтобы не ошибиться в совете, нужно чуть больше фактов. Напишите кратко суть и сроки. Если удобнее голосом — оставьте номер, юрист свяжется в рабочие часы (Пн–Пт 9:00–19:00).'
+    'Чтобы не ошибиться в совете, нужно чуть больше фактов. Напишите кратко суть и сроки. Если удобнее голосом — оставьте номер, юрист свяжется в рабочие часы (Пн–Пт 10:00–19:00).'
   ]);
 }
 
@@ -10978,12 +10982,12 @@ window.CentrOFF = { openChat, scrollToTarget, setPreset, fmt, reduce, hasGSAP, c
   }
 
   /* ---------- Константы записи (как в booking.js / server.mjs) ---------- */
-  const OPEN = 9 * 60, CLOSE = 19 * 60;
+  const OPEN = 10 * 60, CLOSE = 19 * 60;
   const SERVICES = [
-    { id: 'consult30', name: 'Консультация 30 мин', price: 2900, mins: 30, note: 'Зачёт в стоимость дела' },
-    { id: 'consult60', name: 'Консультация 60 мин', price: 5500, mins: 60, note: 'Видео, телефон или офис' },
-    { id: 'office',    name: 'Визит в офис',        price: 5500, mins: 60, note: 'г. Москва, Мартеновская ул., д. 1/58', forceFormat: 'office' },
-    { id: 'mediation', name: 'Сессия медиации',     price: 12000, mins: 90, note: 'Семейные и гражданские споры' },
+    { id: 'consult30', name: 'Консультация простая', price: 2900, mins: 30, note: 'Устно, не больше 30 минут' },
+    { id: 'consult60', name: 'Консультация стандарт', price: 5000, mins: 60, note: 'Немного документов, не больше часа' },
+    { id: 'consultHard', name: 'Консультация сложная', price: 10000, mins: 60, note: 'Весь пакет и устно до часа. Изучение до 3 рабочих дней' },
+    { id: 'office',    name: 'Визит в офис',        price: 5000, mins: 60, note: 'Стандартная консультация в офисе', forceFormat: 'office' },
     { id: 'talks',     name: 'Сопровождение переговоров', price: 15000, mins: 90, note: 'По договору или сделке' }
   ];
   const FORMATS = [
@@ -11003,7 +11007,7 @@ window.CentrOFF = { openChat, scrollToTarget, setPreset, fmt, reduce, hasGSAP, c
   };
   const ISSUES = {
     person: [
-      { id: 'family', t: 'Развод, дети, алименты', area: 'family', s: [['Развод по согласию', 28000], ['Брачный договор', 22000]] },
+      { id: 'family', t: 'Развод, дети, алименты', area: 'family', s: [['Развод по согласию', 28000], ['Проект брачного договора', 22000]] },
       { id: 'debt', t: 'Мне должны деньги', area: 'debt', s: [['Досудебная претензия', 8000], ['Заявление о судебном приказе', 12000]] },
       { id: 'realty', t: 'Квартира, аренда, сделка', area: 'realestate', s: [['Проверка объекта', 35000], ['Проверка договора аренды', 9900]] },
       { id: 'labor', t: 'Проблемы на работе, увольнение', area: 'court', s: [['Анализ дела и стратегия', 25000], ['Исковое заявление', 35000]], tip: 'Важно: на спор об увольнении есть всего 1 месяц — проверьте срок в разделе «Инструменты».' },
@@ -11013,7 +11017,7 @@ window.CentrOFF = { openChat, scrollToTarget, setPreset, fmt, reduce, hasGSAP, c
       { id: 'contract', t: 'Договор или сделка', area: 'contract', s: [['Проверка договора', 9900], ['Составление с нуля', 19000]] },
       { id: 'debt', t: 'Контрагент не платит', area: 'debt', s: [['Досудебная претензия', 8000], ['Исполнительное производство', 25000]] },
       { id: 'corp', t: 'Регистрация, корпоративные вопросы', area: 'corporate', s: [['Регистрация ООО с юр. адресом', 19900], ['Корпоративный договор', 60000]] },
-      { id: 'check', t: 'Проверка или претензия госоргана', area: 'court', s: [['Срочная консультация (60 мин)', 5500], ['Сопровождение проверки', 30000]] },
+      { id: 'check', t: 'Проверка или претензия госоргана', area: 'court', s: [['Консультация сложная', 10000], ['Сопровождение проверки', 30000]] },
       { id: 'court', t: 'Суд уже идёт', area: 'court', s: [['Анализ дела и стратегия', 25000], ['Одно судебное заседание', 17000]] }
     ]
   };
@@ -12116,7 +12120,7 @@ if ($('#deadForm')) {
   if (!bot || !/^[A-Za-z][A-Za-z0-9_]{3,31}$/.test(bot)) return;
 
   const START_RE = /^[A-Za-z0-9_-]{1,64}$/;
-    const SERVICES = ['consult30', 'consult60', 'office', 'mediation', 'talks'];
+    const SERVICES = ['consult30', 'consult60', 'consultHard', 'office', 'talks'];
   const link = p => 'https://t.me/' + bot + (p && START_RE.test(p) ? '?start=' + p : '');
   const $ = (s, r = document) => r.querySelector(s);
 
@@ -12537,12 +12541,12 @@ if (!canvas || !capable()) {
     var now = new Date(Date.now() + (new Date().getTimezoneOffset() + 180) * 60000);
     var day = now.getDay();
     var mins = now.getHours() * 60 + now.getMinutes();
-    var open = day >= 1 && day <= 5 && mins >= 540 && mins < 1140;
+    var open = day >= 1 && day <= 5 && mins >= 600 && mins < 1140;
     if (open) {
       var left = 1140 - mins;
       el.textContent = 'Офис открыт · до 19:00 ещё ' + Math.floor(left / 60) + ' ч ' + (left % 60) + ' мин';
     } else {
-      el.textContent = 'Сейчас офис закрыт · Пн–Пт, 9:00–19:00. Заявку можно оставить сразу, ответим в рабочее время.';
+      el.textContent = 'Сейчас офис закрыт · Пн–Пт, 10:00–19:00. Заявку можно оставить сразу, ответим в рабочее время.';
     }
   }
   clock();
