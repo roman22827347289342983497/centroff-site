@@ -280,8 +280,9 @@ body.intro-out .hero__content,body.intro-out .hero__side{opacity:1;visibility:vi
 .header.hide{transform:translateY(-130%)}
 .logo{font-family:var(--f-d);font-weight:900;font-size:20px;letter-spacing:-.03em;white-space:nowrap;display:inline-flex;align-items:center}
 .logo a{color:inherit;text-decoration:none}
-.logo__o{font:inherit;font-weight:900;letter-spacing:-.03em;color:var(--rasp);background:transparent;border:1.5px solid var(--rasp);border-radius:50%;width:1.35em;height:1.35em;padding:0;line-height:1;cursor:pointer;display:inline-grid;place-items:center}
+.logo__o{position:relative;font:inherit;font-weight:900;letter-spacing:-.03em;color:var(--rasp);background:transparent;border:2px solid var(--rasp);border-radius:50%;width:1.45em;height:1.45em;padding:0;line-height:1;cursor:pointer;display:inline-grid;place-items:center;box-shadow:0 0 0 4px rgba(227,11,92,.18)}
 .logo__o:hover,.logo__o:focus-visible{background:rgba(227,11,92,.18);outline:none}
+.logo__hint{position:absolute;left:50%;top:calc(100% - 1px);transform:translateX(-50%);font:700 11px/1.2 Inter,system-ui,sans-serif;letter-spacing:0;color:#fff;background:var(--rasp);border-radius:999px;padding:3px 7px;white-space:nowrap;pointer-events:none;box-shadow:0 6px 16px rgba(0,0,0,.28)}
 html[data-theme="light"] .logo__o{background:var(--rasp);color:#fff}
 .header .theme-btn{display:none}
 .nav{display:flex;gap:4px;align-items:center}
@@ -2692,7 +2693,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
 <div class="scroll-progress" aria-hidden="true"></div>
 
 <header class="header" id="header">
-  <div class="logo"><a href="#top" aria-label="ЦентрОФФ — на главную">Центр</a><button type="button" class="logo__o" id="logoTheme" aria-pressed="false" title="Светлая или тёмная тема">О</button><a href="#top" tabindex="-1" aria-hidden="true"><b>ФФ</b></a></div>
+  <div class="logo"><a href="#top" aria-label="ЦентрОФФ — на главную">Центр</a><button type="button" class="logo__o" id="logoTheme" aria-pressed="false" title="Нажмите букву О, чтобы сменить тему">О<span class="logo__hint" id="logoHint">нажми: свет</span></button><a href="#top" tabindex="-1" aria-hidden="true"><b>ФФ</b></a></div>
   <nav class="nav" id="nav" aria-label="Главное меню">
     <a href="#way">С чего начать</a>
     <a href="#services">Услуги и цены</a>
@@ -12535,6 +12536,8 @@ if (!canvas || !capable()) {
     if (!o || !window.CentrOFFTheme) return;
     var light = CentrOFFTheme.get() === 'light';
     o.setAttribute('aria-pressed', light ? 'true' : 'false');
+    var hint = document.getElementById('logoHint');
+    if (hint) hint.textContent = light ? 'нажми: темно' : 'нажми: свет';
     o.title = light ? 'Сейчас светло. Нажмите букву О — станет темно' : 'Сейчас темно. Нажмите букву О — станет светло';
     o.setAttribute('aria-label', o.title);
   }
