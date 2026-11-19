@@ -9789,10 +9789,10 @@ function heroIntro(opts) {
 window.__centroffOnIdle(() => {
 if (hasGSAP && !reduce) {
   $$('.reveal-up').filter(el => !el.closest('.hero')).forEach(el => {
-    gsap.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+    gsap.fromTo(el, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .5, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 150%' } });
   });
   ScrollTrigger.batch('.reveal', {
-    start: 'top 90%',
+    start: 'top 150%',
     once: true,
     onEnter: b => gsap.fromTo(b, { opacity: 0, y: 28, scale: .98 }, { opacity: 1, y: 0, scale: 1, duration: .62, stagger: .07, ease: 'power3.out', overwrite: 'auto', clearProps: 'transform' })
   });
@@ -9802,7 +9802,7 @@ if (hasGSAP && !reduce) {
   gsap.from('.footer__big', { yPercent: 60, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'top 30%', scrub: 1 } });
   // #process: горизонтальный GSAP-пин убран, теперь таймлайн в js/timeline.js (Motion)
 }
-}, 900);
+}, 0);
 
 /* ---------- Process steps: one-shot scroll-in + soft active cycle ---------- */
 (function processSteps() {
@@ -9876,7 +9876,7 @@ if (hasGSAP && !reduce) {
     inView = e.isIntersecting;
     if (inView && !shown) play();
     if (inView) cycle(); else clearTimeout(cycleT);
-  }), { threshold: 0, rootMargin: '0px 0px -25% 0px' }) : null;
+  }), { threshold: 0, rootMargin: '0px 0px 50% 0px' }) : null;
   if (io) io.observe(track); else play();
   document.addEventListener('visibilitychange', () => { if (document.hidden) clearTimeout(cycleT); else cycle(); }, { passive: true });
   // safety: never leave the block hidden
@@ -9894,7 +9894,7 @@ const countIO = new IntersectionObserver(entries => entries.forEach(en => {
   const dur = 1800, t0 = performance.now();
   const step = t => { const p = Math.min(1, (t - t0) / dur); el.textContent = fmt(to * (1 - Math.pow(1 - p, 4))); if (p < 1) requestAnimationFrame(step); };
   requestAnimationFrame(step);
-}), { threshold: .4 });
+}), { threshold: 0, rootMargin: '0px 0px 40% 0px' });
 $$('.count').forEach(c => countIO.observe(c));
 }, 400);
 
