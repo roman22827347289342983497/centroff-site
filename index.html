@@ -2670,6 +2670,19 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
 [data-theme="light"] .dock__menu a,[data-theme="light"] .dock__menu button{background:#f4eef1}
 @media (max-width:420px){.dock__btn{padding:0 10px;font-size:15px}}
 @media (prefers-reduced-motion:reduce){.dock{transition:none}}
+.shot{margin:12px 0 0}
+.shot__paper{background:#f7f1ea;color:#1a1216;border-radius:18px;padding:18px 18px 14px;box-shadow:0 18px 40px rgba(0,0,0,.28);border:1px solid rgba(0,0,0,.06)}
+.shot__brand{margin:0 0 4px;font:800 13px/1 var(--f-d),system-ui;letter-spacing:.08em;color:#E30B5C}
+.shot__paper h4{margin:0 0 12px;font:800 20px/1.2 var(--f-d),system-ui;color:#1a1216}
+.shot__paper ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.shot__paper li{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:baseline;padding:8px 10px;border-radius:12px;background:#fff}
+.shot__paper b{font:800 12px/1 Inter,system-ui;letter-spacing:.02em}
+.shot__paper small{grid-column:2;color:#5c4a52;font:500 13px/1.35 Inter,system-ui}
+.shot__ok b{color:#1c8a4d}
+.shot__soft{background:#fff6ea}
+.shot__soft b{color:#b15a00}
+.shot__miss b{color:#9a2948}
+.shot__foot{margin:12px 0 0;font:600 12px/1.35 Inter,system-ui;color:#6b5960}
 
 
 </style>
@@ -2828,7 +2841,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
       <div class="card__icon" aria-hidden="true">◈</div>
       <h3>Бизнес и корпоративное право</h3>
       <p>Регистрация компаний, корпоративные договоры, юридическая проверка при сделках слияния и поглощения.</p>
-      <ul class="pricelist"><li><span>Регистрация компании с юр. адресом</span><b>19&nbsp;900&nbsp;₽</b></li><li><span>Абонентское обслуживание</span><b>от 45&nbsp;000&nbsp;₽/мес.</b></li></ul>
+      <ul class="pricelist"><li><span>Регистрация компании с юр. адресом</span><b>19&nbsp;900&nbsp;₽</b></li><li><span>Абонентское обслуживание</span><b>от 25&nbsp;000&nbsp;₽/мес.</b></li></ul>
       <a href="#calculator" class="card__link" data-preset="corporate">Рассчитать →</a>
     </article>
     <article class="card tilt reveal">
@@ -3243,7 +3256,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
       <div class="book__bring-box" id="wizDoneBring"></div>
       <div class="book__actions wiz__actions">
         <button type="button" class="btn magnetic" id="wizIcs"><span>Добавить в календарь</span></button>
-        <button type="button" class="btn btn--ghost" id="wizDocsDl">Скачать чек-лист</button>
+        <button type="button" class="btn btn--ghost" id="wizDocsDl">Показать карточку</button>
         <button type="button" class="btn btn--ghost" id="wizNew">Новая заявка</button>
         <button type="button" class="link-btn" id="wizCancel">Отменить запись</button>
       </div>
@@ -3375,7 +3388,7 @@ body.chat-open .dock,body.book-lock .dock,body.intro .dock{opacity:0;visibility:
       <ul class="docs__list" id="docsList"></ul>
       <div class="docs__actions">
         <button type="button" class="btn btn--sm" id="docsCopy">Скопировать список</button>
-        <button type="button" class="btn btn--sm btn--ghost" id="docsDownload">Скачать .txt</button>
+        <button type="button" class="btn btn--sm btn--ghost" id="docsDownload">Показать карточку</button>
         <button type="button" class="btn btn--sm btn--ghost" id="docsSend">Отправить юристу</button>
       </div>
     </div>
@@ -4244,17 +4257,30 @@ function icsFold(line) {
   out.push(cur);
   return out.join('\r\n ');
 }
-function downloadIcs(b) {
-  const blob = new Blob([icsText(b)], { type: 'text/calendar;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'centroff-zapis.ics';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 2000);
+function openInCalendar(b) {
+  const title = (b.apply && b.apply.appNo) ? (b.apply.appNo + ' — ЦентрОФФ') : ((b.serviceName || 'Запись') + ' — ЦентрОФФ');
+  const when = (b.date || '').replace(/-/g, '') + 'T' + String(b.time || '10:00').replace(':', '') + '00';
+  const till = (b.date || '').replace(/-/g, '') + 'T' + String(b.end || b.time || '11:00').replace(':', '') + '00';
+  const sum = (b.quote && b.quote.total != null) ? rub(b.quote.total) : rub(b.price);
+  const details = [
+    'Запись в ЦентрОФФ',
+    b.serviceName || '',
+    'Сумма: ' + sum,
+    'Формат: ' + (b.formatName || ''),
+    'Телефон офиса: +7 (495) 585-90-61'
+  ].filter(Boolean).join('\n');
+  const loc = b.location || 'Москва, Мартеновская ул., д. 1/58';
+  const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+    + '&text=' + encodeURIComponent(title)
+    + '&dates=' + when + '/' + till
+    + '&ctz=Europe/Moscow'
+    + '&details=' + encodeURIComponent(details)
+    + '&location=' + encodeURIComponent(loc);
+  const w = window.open(url, '_blank', 'noopener');
+  if (!w) location.href = url;
+  toast('Открыли календарь. Нажмите «Сохранить» — встреча запишется у вас, файл скачивать не нужно.');
 }
+function downloadIcs(b) { openInCalendar(b); }
 
 let lockY = 0;
 function isPhone() { return matchMedia('(max-width:640px), (max-height:520px) and (orientation:landscape)').matches; }
@@ -4475,7 +4501,7 @@ const WIZ_LABELS = { 1: 'Кто вы и дело', 2: 'Услуги и сумм�
 const CLIENTS = {
   person: {
     id: 'person', name: 'Физлицо', innLen: 0,
-    extras: ['Паспорт', 'СНИЛС', 'ИНН (свидетельство или распечатка с nalog.ru)']
+    extras: ['Паспорт', 'СНИЛС', 'ИНН (свидетельство или распечатка с nalog.ru)', 'Документы о смене фамилии (если фамилия менялась)']
   },
   ip: {
     id: 'ip', name: 'ИП', innLen: 12,
@@ -4494,7 +4520,7 @@ const CASES = [
     id: 'family', name: 'Семейное / развод', area: 'family',
     include: ['Первичная консультация', 'Развод по согласию'],
     hint: 'Развод, алименты, дети, раздел имущества.',
-    docs: ['Свидетельство о заключении брака', 'Свидетельства о рождении детей', 'Соглашение о детях и алиментах (если есть)', 'Документы на совместное имущество', 'Справки о доходах супруга (для алиментов)', 'Квитанция об оплате госпошлины — 5 000 ₽', 'Исковое заявление (подготовим мы)']
+    docs: ['Свидетельство о заключении брака', 'Свидетельства о рождении детей', 'Паспорт', 'Документы о смене фамилии (если фамилия менялась)', 'СНИЛС', 'Соглашение о детях и алиментах (если есть)', 'Документы на совместное имущество', 'Справки о доходах супруга (для алиментов)', 'Квитанция об оплате госпошлины — 5 000 ₽', 'Исковое заявление (подготовим мы)']
   },
   {
     id: 'labor', name: 'Трудовой спор', area: 'court',
@@ -5060,15 +5086,26 @@ function goWiz(step) {
   setWizStep(step);
 }
 
-function bringBoxHTML(docs) {
+function gapNote(name) {
+  const n = String(name).toLowerCase();
+  if (n.includes('паспорт')) return 'Паспорта нет — разберёмся. Наберите нам, решим без него.';
+  if (n.includes('снилс')) return 'СНИЛСа нет — разберёмся. Наберите нам, подскажем, как обойтись.';
+  if (n.includes('инн')) return 'ИНН нет под рукой — разберёмся. Наберите нам, часто хватает номера.';
+  if (n.includes('фамил')) return 'Документов о смене фамилии нет — разберёмся. Наберите нам, подскажем, чем заменить.';
+  return '';
+}
+function shotHTML(docs, title) {
   if (!docs || !docs.length) return '';
-  const missing = docs.filter(d => !d.has);
-  const have = docs.filter(d => d.has);
-  let html = '<h4>Взять с собой</h4>';
-  if (missing.length) html += `<ul>${missing.map(d => `<li>${esc(d.name)}</li>`).join('')}</ul>`;
-  else html += '<p class="muted small">Все отмеченные документы уже на руках.</p>';
-  if (have.length) html += `<h4 style="margin-top:12px">Уже есть</h4><ul>${have.map(d => `<li>${esc(d.name)}</li>`).join('')}</ul>`;
-  return html;
+  const rows = docs.map(d => {
+    if (d.has) return `<li class="shot__ok"><b>Есть</b><span>${esc(d.name)}</span></li>`;
+    const note = gapNote(d.name);
+    if (note) return `<li class="shot__soft"><b>Разберёмся</b><span>${esc(d.name)}</span><small>${esc(note)}</small></li>`;
+    return `<li class="shot__miss"><b>Пока нет</b><span>${esc(d.name)}</span><small>Если не найдётся — наберите нам, подскажем, чем заменить.</small></li>`;
+  }).join('');
+  return `<div class="shot"><div class="shot__paper"><p class="shot__brand">ЦентрОФФ</p><h4>${esc(title || 'Что есть и чего нет')}</h4><ul>${rows}</ul><p class="shot__foot">Карточка на экране, не файл. +7 (495) 585-90-61</p></div></div>`;
+}
+function bringBoxHTML(docs) {
+  return shotHTML(docs, 'Что есть и чего нет');
 }
 
 function checklistText(b) {
@@ -5350,7 +5387,7 @@ function initWizard() {
   });
 
   $('#wizIcs')?.addEventListener('click', () => { const b = BookingStore.latest(); if (b) downloadIcs(b); });
-  $('#wizDocsDl')?.addEventListener('click', () => { const b = BookingStore.latest(); if (b) downloadChecklist(b); });
+  $('#wizDocsDl')?.addEventListener('click', () => { const box = $('#wizDoneBring'); if (box) box.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
   $('#wizCancel')?.addEventListener('click', () => cancelLatest(() => { wizState.time = ''; wizMax = 4; goWiz(4); }));
   $('#wizNew')?.addEventListener('click', () => {
     resetApplyForm();
@@ -9250,7 +9287,7 @@ void main() {
   const CATALOG = {
     court: [['Первичная консультация', 2900, true], ['Анализ дела и стратегия', 25000, true], ['Исковое заявление / отзыв', 35000, true], ['Подготовка доказательств и свидетелей', 30000], ['Апелляционная жалоба', 50000]],
     contract: [['Первичная консультация', 2900, true], ['Проверка договора (до 10 стр.)', 9900, true], ['Составление договора с нуля', 19000], ['Сопровождение переговоров', 15000], ['Пакет соглашений о конфиденциальности', 10000]],
-    corporate: [['Первичная консультация', 2900, true], ['Регистрация ООО с юр. адресом', 19900, true], ['Корпоративный договор', 60000], ['Юридическая проверка компании', 120000], ['Абонентское обслуживание (мес.)', 45000]],
+    corporate: [['Первичная консультация', 2900, true], ['Регистрация ООО с юр. адресом', 19900, true], ['Корпоративный договор', 60000], ['Юридическая проверка компании', 120000], ['Абонентское обслуживание (мес.)', 25000]],
     family: [['Первичная консультация', 2900, true], ['Развод по согласию', 28000, true], ['Соглашение о детях', 18000], ['Брачный договор', 22000], ['Сессия медиации', 12000]],
     realestate: [['Первичная консультация', 2900, true], ['Проверка объекта', 35000, true], ['Проверка договора аренды', 9900], ['Договор купли-продажи', 15000], ['Претензия арендатору / арендодателю', 7000]],
     debt: [['Первичная консультация', 2900, true], ['Досудебная претензия', 8000, true], ['Заявление о судебном приказе', 12000], ['Исполнительное производство', 25000], ['Розыск имущества должника', 40000]]
@@ -11401,7 +11438,7 @@ if (limitDate) {
    6. Documents checklist generator
    ========================================================= */
 const DOCS = {
-  divorce: ['Развод', ['Паспорт', 'Свидетельство о заключении брака', 'Свидетельства о рождении детей', 'Соглашение о детях и алиментах (если есть)', 'Документы на совместное имущество', 'Справки о доходах супруга (для алиментов)', 'Квитанция об оплате госпошлины — 5 000 ₽', 'Исковое заявление (подготовим мы)']],
+  divorce: ['Развод', ['Паспорт', 'СНИЛС', 'Документы о смене фамилии (если фамилия менялась)', 'Свидетельство о заключении брака', 'Свидетельства о рождении детей', 'Соглашение о детях и алиментах (если есть)', 'Документы на совместное имущество', 'Справки о доходах супруга (для алиментов)', 'Квитанция об оплате госпошлины — 5 000 ₽', 'Исковое заявление (подготовим мы)']],
   debt: ['Взыскание долга', ['Договор займа или расписка', 'Подтверждение передачи денег (выписки, платёжки)', 'Переписка с должником', 'Претензия и доказательство её отправки', 'Расчёт долга и процентов по ст. 395 ГК РФ', 'Данные должника: ИНН, адрес', 'Квитанция об оплате госпошлины']],
   labor: ['Трудовой спор', ['Трудовой договор и дополнительные соглашения', 'Приказ об увольнении или о взыскании', 'Трудовая книжка или сведения о трудовой деятельности (СТД-Р)', 'Расчётные листки и справка о доходах', 'Переписка с работодателем', 'Должностная инструкция', 'Контакты свидетелей']],
   flat: ['Покупка квартиры', ['Свежая выписка из ЕГРН', 'Правоустанавливающие документы продавца', 'Паспорта всех продавцов', 'Нотариальное согласие супруга на продажу', 'Справка об отсутствии долгов по ЖКУ', 'Сведения о зарегистрированных в квартире', 'Проект договора купли-продажи']],
@@ -11438,9 +11475,17 @@ if (docsChips) {
     toast('Список скопирован');
   });
   $('#docsDownload').addEventListener('click', () => {
-    const url = URL.createObjectURL(new Blob([docsText()], { type: 'text/plain;charset=utf-8' }));
-    const a = Object.assign(document.createElement('a'), { href: url, download: `centroff-dokumenty-${docsState.cur}.txt` });
-    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    const [title, list] = DOCS[docsState.cur];
+    const done = new Set(docsState.done[docsState.cur] || []);
+    const docs = list.map((name, i) => ({ name, has: done.has(i) }));
+    let host = document.getElementById('docsShot');
+    if (!host) {
+      host = document.createElement('div');
+      host.id = 'docsShot';
+      document.getElementById('docsList').insertAdjacentElement('afterend', host);
+    }
+    host.innerHTML = shotHTML(docs, title);
+    host.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
   $('#docsSend').addEventListener('click', () => {
     const [title, list] = DOCS[docsState.cur], done = docsState.done[docsState.cur] || [];
