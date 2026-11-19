@@ -5384,8 +5384,21 @@ function initWizard() {
       if (hit) { hit.apply = booking.apply; localStorage.setItem(KEY, JSON.stringify({ reservations: list })); }
     } catch { /* */ }
 
-    if ($('#wizAppNo')) $('#wizAppNo').textContent = result.number;
-    if ($('#wizDoneTitle')) $('#wizDoneTitle').textContent = 'Заявка отправлена';
+    if ($('#wizAppNo')) $('#wizAppNo').textContent = result.remote ? result.number : (result.number + '. Юрист увидит запись, когда вы нажмёте «Отправить» в WhatsApp.');
+    if ($('#wizDoneTitle')) $('#wizDoneTitle').textContent = result.remote ? 'Заявка отправлена' : 'Остался один шаг';
+    if (!result.remote) {
+      const text = [
+        'Запись с сайта ЦентрОФФ',
+        'Номер: ' + result.number,
+        'Имя: ' + booking.name,
+        'Телефон: ' + booking.phone,
+        'Когда: ' + booking.date + ' ' + booking.time,
+        'Услуга: ' + (booking.serviceName || ''),
+        'Формат: ' + (booking.formatName || ''),
+        'Сумма: ' + (booking.price != null ? booking.price + ' ₽' : '')
+      ].join('\n');
+      window.open('https://wa.me/79255859061?text=' + encodeURIComponent(text), '_blank', 'noopener');
+    }
     $('#wizDoneSum').innerHTML = summaryHTML(booking);
     const bring = $('#wizDoneBring');
     if (bring) bring.innerHTML = bringBoxHTML(booking.apply.docs);
@@ -10123,12 +10136,29 @@ form.addEventListener('submit', e => {
     if (hasGSAP && !reduce) gsap.fromTo('#formOk', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .6 });
   };
   const fail = (msg) => { $('#formOk').textContent = msg; btn.disabled = false; $('span', btn).textContent = 'Отправить заявку'; };
+  const handoff = () => {
+    const text = [
+      'Заявка с сайта ЦентрОФФ',
+      'Имя: ' + $('#fName').value.trim(),
+      'Телефон: ' + ($('#fPhone').value.trim() || 'не указан'),
+      'Почта: ' + $('#fEmail').value.trim(),
+      'Тема: ' + ($('#fTopic').value || ''),
+      $('#fMsg').value.trim()
+    ].join('\n');
+    const url = 'https://wa.me/79255859061?text=' + encodeURIComponent(text);
+    const w = window.open(url, '_blank', 'noopener');
+    $('#formOk').innerHTML = w
+      ? 'Открыли WhatsApp. Нажмите там «Отправить» — только тогда заявка дойдёт до юриста.'
+      : 'Нажмите <a href="' + url + '" target="_blank" rel="noopener">отправить заявку в WhatsApp</a>. Пока сообщение не отправлено, юрист её не увидит.';
+    btn.disabled = false; $('span', btn).textContent = 'Отправить заявку';
+  };
   if (form.elements.website && String(form.elements.website.value || '').trim()) { setTimeout(() => done(''), 900); return; }
-  if (!/^https?:$/.test(location.protocol)) { setTimeout(() => done(''), 900); return; }
+  if (!/^https?:$/.test(location.protocol)) { handoff(); return; }
   const payload = { name: $('#fName').value.trim(), email: $('#fEmail').value.trim(), phone: $('#fPhone').value.trim(), topic: $('#fTopic').value, message: $('#fMsg').value.trim(), consent: true, website: (form.elements.website && form.elements.website.value) || '' };
   fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
     .then(async r => {
-      if (r.status === 404) return done('');
+      const type = r.headers.get('content-type') || '';
+      if (r.status === 404 || !type.includes('json')) return handoff();
       const j = await r.json().catch(() => ({}));
       if (r.ok) return done(j.number || '');
       if (r.status === 422 && Array.isArray(j.fields)) {
@@ -10139,7 +10169,7 @@ form.addEventListener('submit', e => {
       if (r.status === 429) return fail('Слишком много заявок подряд. Попробуйте через минуту.');
       fail('Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в чат.');
     })
-    .catch(() => fail('Нет соединения. Проверьте интернет и попробуйте ещё раз.'));
+    .catch(() => handoff());
 });
 }, 200);
 
